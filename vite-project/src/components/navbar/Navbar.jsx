@@ -49,7 +49,7 @@ const Navbar = () => {
         <div className="left py-3 lg:py-0">
           <Link to={"/"}>
             <h2 className=" font-bold text-white text-2xl text-center">
-              My Book Catalogue
+              My Book Catalog
             </h2>
           </Link>
         </div>

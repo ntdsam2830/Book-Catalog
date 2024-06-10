@@ -33,7 +33,7 @@ const searchData = [
       "https://i.pinimg.com/736x/e4/61/f2/e461f2246b6ad93e2099d98780626396.jpg",
   },
   {
-    name: "book",
+    name: "Book",
     image:
       "https://i.pinimg.com/564x/fd/50/68/fd50688767adb47aba7204f034554cbd.jpg",
   },
