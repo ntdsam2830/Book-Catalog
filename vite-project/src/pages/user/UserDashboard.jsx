@@ -1,6 +1,6 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { BookOpenText, Heart } from "lucide-react";
-
+import BookDetail from "../../components/user/BookDetail";
 const UserDashboard = () => {
   return (
     <div>
@@ -95,7 +95,9 @@ const UserDashboard = () => {
               </Tab>
             </TabList>
 
-            <TabPanel>All Books</TabPanel>
+            <TabPanel>
+              <BookDetail />
+            </TabPanel>
 
             <TabPanel>Favorite Books</TabPanel>
           </Tabs>
