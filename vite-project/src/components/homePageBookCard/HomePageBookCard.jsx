@@ -86,7 +86,7 @@ const HomePageBookCard = () => {
       {/* Heading  */}
       <div className="">
         <h1 className=" text-center mb-5 text-2xl font-semibold">
-          Recommended Books
+          New Books
         </h1>
       </div>
 
@@ -97,7 +97,7 @@ const HomePageBookCard = () => {
             {bookData.map((item, index) => {
               const { image, name, authors } = item;
               return (
-                <div key={index} className="p-4 w-full md:w-1/4">
+                <div key={index} className="p-3.5 w-full md:w-1/4">
                   <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
                     <img
                       className="lg:h-80  h-96 w-full"
@@ -108,7 +108,7 @@ const HomePageBookCard = () => {
                       <h2 className="tracking-widest text-xs name-font font-medium text-gray-400 mb-1">
                         My Book Catalog
                       </h2>
-                      <h1 className="name-font text-lg font-medium text-gray-900 mb-3">
+                      <h1 className="name-font text-lg font-semibold text-gray-900 mb-3">
                         {name.substring(0, 25)}
                       </h1>
                       <h1 className="name-font text-lg font-medium text-gray-900 mb-3">
