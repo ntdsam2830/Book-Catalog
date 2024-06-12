@@ -12,7 +12,7 @@ const Navbar = () => {
 
       {/* All Product */}
       <li>
-        <Link to={"/allproduct"}>All Product</Link>
+        <Link to={"/allbooks"}>All Book</Link>
       </li>
 
       {/* Signup */}
@@ -22,7 +22,7 @@ const Navbar = () => {
 
       {/* User */}
       <li>
-        <Link to={"/"}>Kamal</Link>
+        <Link to={"/user-dashboard"}>User</Link>
       </li>
 
       {/* Admin */}
