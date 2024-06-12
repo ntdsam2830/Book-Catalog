@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 // productData
 const bookData = [
   {
@@ -81,13 +83,12 @@ const bookData = [
 ];
 
 const HomePageBookCard = () => {
+  const navigate = useNavigate();
   return (
     <div className="mt-10">
       {/* Heading  */}
       <div className="">
-        <h1 className=" text-center mb-5 text-2xl font-semibold">
-          New Books
-        </h1>
+        <h1 className=" text-center mb-5 text-2xl font-semibold">New Books</h1>
       </div>
 
       {/* main  */}
@@ -100,6 +101,7 @@ const HomePageBookCard = () => {
                 <div key={index} className="p-3.5 w-full md:w-1/4">
                   <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
                     <img
+                      onClick={() => navigate("/bookinfo")}
                       className="lg:h-80  h-96 w-full"
                       src={image}
                       alt="blog"
