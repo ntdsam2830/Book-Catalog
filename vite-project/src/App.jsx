@@ -7,6 +7,8 @@ import AllBooks from "./pages/allBooks/AllBooks";
 import Signup from "./pages/registration/Signup";
 import Login from "./pages/registration/Login";
 import UserDashboard from "./pages/user/UserDashboard";
+import AddBookPage from "./pages/user/AddBookPage";
+import UpdateBookPage from "./pages/user/UpdateBookPage";
 
 import ScrollTop from "./components/scrollTop/ScrollTop";
 const App = () => {
@@ -22,6 +24,8 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/user-dashboard" element={<UserDashboard />} />
+          <Route path="/addbook" element={<AddBookPage />} />
+          <Route path="/updatebook" element={<UpdateBookPage />} />
         </Routes>
       </Router>
     </div>

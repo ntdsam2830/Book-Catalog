@@ -1,13 +1,17 @@
-const ProductDetail = () => {
+import { Link } from "react-router-dom";
+
+const BookDetail = () => {
   return (
     <div>
       <div className="py-5 flex justify-between items-center">
         {/* text  */}
         <h1 className=" text-xl text-indigo-300 font-bold">Total Books</h1>
         {/* Add Product Button  */}
-        <button className="px-5 py-2 bg-indigo-50 border border-indigo-100 rounded-lg">
-          Add Book
-        </button>
+        <Link to={"/addbook"}>
+          <button className="px-5 py-2 bg-indigo-50 border border-indigo-100 rounded-lg">
+            Add Book
+          </button>
+        </Link>
       </div>
 
       {/* table  */}
@@ -61,4 +65,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default BookDetail;
