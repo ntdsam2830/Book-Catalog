@@ -9,25 +9,28 @@ import Login from "./pages/registration/Login";
 import UserDashboard from "./pages/user/UserDashboard";
 import AddBookPage from "./pages/user/AddBookPage";
 import UpdateBookPage from "./pages/user/UpdateBookPage";
+import MyState from "./context/myState";
 
 import ScrollTop from "./components/scrollTop/ScrollTop";
 const App = () => {
   return (
     <div>
-      <Router>
-        <ScrollTop />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/*" element={<NoPage />} />
-          <Route path="/bookinfo" element={<BookInfo />} />
-          <Route path="/allbooks" element={<AllBooks />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/user-dashboard" element={<UserDashboard />} />
-          <Route path="/addbook" element={<AddBookPage />} />
-          <Route path="/updatebook" element={<UpdateBookPage />} />
-        </Routes>
-      </Router>
+      <MyState>
+        <Router>
+          <ScrollTop />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/*" element={<NoPage />} />
+            <Route path="/bookinfo" element={<BookInfo />} />
+            <Route path="/allbooks" element={<AllBooks />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/user-dashboard" element={<UserDashboard />} />
+            <Route path="/addbook" element={<AddBookPage />} />
+            <Route path="/updatebook" element={<UpdateBookPage />} />
+          </Routes>
+        </Router>
+      </MyState>
     </div>
   );
 };
