@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import HomePage from "./pages/home/HomePage";
 import NoPage from "./pages/noPage/NoPage";
@@ -12,6 +13,7 @@ import UpdateBookPage from "./pages/user/UpdateBookPage";
 import MyState from "./context/myState";
 
 import ScrollTop from "./components/scrollTop/ScrollTop";
+
 const App = () => {
   return (
     <div>
@@ -29,6 +31,7 @@ const App = () => {
             <Route path="/addbook" element={<AddBookPage />} />
             <Route path="/updatebook" element={<UpdateBookPage />} />
           </Routes>
+          <Toaster />
         </Router>
       </MyState>
     </div>
