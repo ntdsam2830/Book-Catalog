@@ -20,6 +20,7 @@ const Signup = () => {
     name: "",
     email: "",
     password: "",
+    role: "user",
   });
 
   const userSignupFunction = async () => {
@@ -45,6 +46,7 @@ const Signup = () => {
         name: userSignup.name,
         email: users.user.email,
         uid: users.user.uid,
+        role: userSignup.role,
         time: Timestamp.now(),
         date: new Date().toLocaleString("en-US", {
           month: "short",

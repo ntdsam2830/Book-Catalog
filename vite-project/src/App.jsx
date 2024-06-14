@@ -11,7 +11,7 @@ import UserDashboard from "./pages/user/UserDashboard";
 import AddBookPage from "./pages/user/AddBookPage";
 import UpdateBookPage from "./pages/user/UpdateBookPage";
 import MyState from "./context/myState";
-
+import { ProtectedRouteForUser } from "./protectedRoute/ProtectedRouteForUser";
 import ScrollTop from "./components/scrollTop/ScrollTop";
 
 const App = () => {
@@ -27,9 +27,30 @@ const App = () => {
             <Route path="/allbooks" element={<AllBooks />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/user-dashboard" element={<UserDashboard />} />
-            <Route path="/addbook" element={<AddBookPage />} />
-            <Route path="/updatebook" element={<UpdateBookPage />} />
+            <Route
+              path="/user-dashboard"
+              element={
+                <ProtectedRouteForUser>
+                  <UserDashboard />
+                </ProtectedRouteForUser>
+              }
+            />
+            <Route
+              path="/addbook"
+              element={
+                <ProtectedRouteForUser>
+                  <AddBookPage />
+                </ProtectedRouteForUser>
+              }
+            />
+            <Route
+              path="/updatebook"
+              element={
+                <ProtectedRouteForUser>
+                  <UpdateBookPage />
+                </ProtectedRouteForUser>
+              }
+            />
           </Routes>
           <Toaster />
         </Router>
