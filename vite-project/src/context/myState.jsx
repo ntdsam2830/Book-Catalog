@@ -43,6 +43,7 @@ function MyState({ children }) {
         loading,
         setLoading,
         getAllBook,
+        getAllBookFunction,
       }}
     >
       {children}

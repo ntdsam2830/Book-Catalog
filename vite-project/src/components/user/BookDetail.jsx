@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import myContext from "../../context/myContext";
 import Loader from "../loader/Loader";
 
 const BookDetail = () => {
   const context = useContext(myContext);
   const { loading, getAllBook } = context;
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -81,7 +83,8 @@ const BookDetail = () => {
             </tr>
 
             {getAllBook.map((item, index) => {
-              const { name, authors, category, publish, bookImageUrl } = item;
+              const { id, name, authors, category, publish, bookImageUrl } =
+                item;
               return (
                 <tr key={index} className="text-pink-300">
                   <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 ">
@@ -104,7 +107,10 @@ const BookDetail = () => {
                   <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
                     {publish}
                   </td>
-                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 text-green-500 cursor-pointer ">
+                  <td
+                    onClick={() => navigate(`/updatebook/${id}`)}
+                    className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 text-green-500 cursor-pointer "
+                  >
                     Edit
                   </td>
                   <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 text-red-500 cursor-pointer ">

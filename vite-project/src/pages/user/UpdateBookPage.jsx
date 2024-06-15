@@ -165,8 +165,10 @@ const UpdateBookPage = () => {
           {/* Input Two  */}
           <div className="mb-3">
             <input
-              type="date"
-              min="1000-01-01"
+              required=""
+              type="number"
+              min="1000"
+              max="2024"
               id="datePickerId"
               name="publish"
               value={book.publish}
@@ -179,9 +181,9 @@ const UpdateBookPage = () => {
               placeholder="Publish year"
               className="bg-indigo-50 border text-indigo-300 border-indigo-200 px-2 py-2 w-96 rounded-md outline-none placeholder-indigo-300"
             />
-            <script type="text/javascript">
+            {/* <script type="text/javascript">
               datePickerId.max = new Date().toISOString().split("T")[0];
-            </script>
+            </script> */}
           </div>
 
           {/* Input Three  */}
@@ -285,11 +287,11 @@ const UpdateBookPage = () => {
           {/* Add book Button  */}
           <div className="mb-3">
             <button
-              onClick={addBookFunction}
-              type="button"
+              onClick={updateBookFunction}
+              type="submit"
               className="bg-indigo-500 hover:bg-indigo-600 w-full text-white text-center py-2 font-bold rounded-md "
             >
-              Add book
+              Update Book
             </button>
           </div>
         </div>

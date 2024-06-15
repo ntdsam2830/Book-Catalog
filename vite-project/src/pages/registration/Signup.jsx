@@ -25,12 +25,15 @@ const Signup = () => {
 
   const userSignupFunction = async () => {
     // validation
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (
       userSignup.name === "" ||
       userSignup.email === "" ||
       userSignup.password === ""
     ) {
       toast.error("All Fields are required");
+    } else if (!emailPattern.test(userSignup.email)) {
+      toast.error("Invalid email");
     }
 
     setLoading(true);

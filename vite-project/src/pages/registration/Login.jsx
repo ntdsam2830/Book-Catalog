@@ -23,8 +23,11 @@ const Login = () => {
 
   const userLoginFunction = async () => {
     // validation
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (userLogin.email === "" || userLogin.password === "") {
-      toast.error("All Fields are required");
+      toast.error("All fields are required");
+    } else if (!emailPattern.test(userLogin.email)) {
+      toast.error("Invalid email");
     }
 
     setLoading(true);
