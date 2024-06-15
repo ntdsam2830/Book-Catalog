@@ -41,11 +41,20 @@ const UserDashboard = () => {
               </div>
               {/* text  */}
               <div className="">
+                {/* Name  */}
                 <h1 className=" text-center text-lg text-indigo-500">
                   <span className=" font-bold">Name :</span> {user?.name}
                 </h1>
+
+                {/* Email  */}
                 <h1 className=" text-center text-lg text-indigo-500">
                   <span className=" font-bold">Email :</span> {user?.email}
+                </h1>
+
+                {/* Date  */}
+                <h1 className=" text-center text-lg text-indigo-500">
+                  <span className=" font-bold">Date : </span>
+                  {user?.date}
                 </h1>
               </div>
             </div>

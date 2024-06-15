@@ -1,49 +1,61 @@
 // category
-const year = [
+const category = [
   {
-    image: "https://cdn-icons-png.flaticon.com/256/4359/4359963.png",
-    name: "fashion",
+    image: "img/cooperation.png",
+    name: "Business & Economics",
   },
   {
-    image: "https://cdn-icons-png.flaticon.com/256/11833/11833323.png",
-    name: "shirt",
+    image: "img/love-yourself.png",
+    name: "Self-Help",
   },
   {
-    image: "https://cdn-icons-png.flaticon.com/256/8174/8174424.png",
-    name: "jacket",
+    image: "img/innovation.png",
+    name: "Science & Technology",
   },
   {
-    image: "https://cdn-icons-png.flaticon.com/256/7648/7648246.png",
-    name: "mobile",
+    image: "img/city.png",
+    name: "sci-Fi & Fantasy",
   },
   {
-    image: "https://cdn-icons-png.flaticon.com/256/12142/12142416.png",
-    name: "laptop",
+    image: "img/history-book.png",
+    name: "Literature & Fiction",
   },
   {
-    image: "https://cdn-icons-png.flaticon.com/256/10686/10686553.png",
-    name: "shoes",
+    image: "img/evolution.png",
+    name: "History",
   },
   {
-    image: "https://cdn-icons-png.flaticon.com/256/12114/12114279.png",
-    name: "home",
+    image: "img/comic.png",
+    name: "Comics",
   },
   {
-    image: "https://cdn-icons-png.flaticon.com/256/11946/11946316.png",
-    name: "books",
+    image: "img/biography.png",
+    name: "Biographies & Memoirs",
+  },
+  {
+    image: "img/hearts.png",
+    name: "Romance",
+  },
+  {
+    image: "img/playtime.png",
+    name: "Children",
+  },
+  {
+    image: "img/education.png",
+    name: "Education & Teaching",
   },
 ];
 
-const Year = () => {
+const Category = () => {
   return (
     <div>
       <div className="flex flex-col mt-5">
         {/* main 1 */}
-        <div className="flex overflow-x-scroll lg:justify-center  hide-scroll-bar">
+        <div className="flex overflow-x-scroll justify-around hide-scroll-bar">
           {/* main 2  */}
           <div className="flex ">
             {/* category  */}
-            {year.map((item, index) => {
+            {category.map((item, index) => {
               return (
                 <div key={index} className="px-3 lg:px-10">
                   {/* Image  */}
@@ -76,4 +88,4 @@ const Year = () => {
   );
 };
 
-export default Year;
+export default Category;

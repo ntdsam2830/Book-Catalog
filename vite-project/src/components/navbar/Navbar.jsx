@@ -11,7 +11,7 @@ const Navbar = () => {
   // logout function
   const logout = () => {
     localStorage.clear("users");
-    navigate("/login");
+    navigate("/");
   };
 
   // navList Data
@@ -35,6 +35,7 @@ const Navbar = () => {
       ) : (
         ""
       )}
+
       {/* Signup */}
       {!user ? (
         <li>
@@ -48,11 +49,6 @@ const Navbar = () => {
       <li>
         <Link to={"/user-dashboard"}>{user?.name}</Link>
       </li>
-
-      {/* Admin */}
-      {/* <li>
-                <Link to={'/'}>Admin</Link>
-            </li> */}
 
       {/* logout */}
       {user && (
