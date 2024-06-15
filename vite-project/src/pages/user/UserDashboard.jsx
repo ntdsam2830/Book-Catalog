@@ -7,13 +7,13 @@ import BookDetail from "../../components/user/BookDetail";
 import FavBook from "../../components/user/FavBook";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/myContext";
-import Loader from "../../components/loader/Loader";
 
 const UserDashboard = () => {
   // user
   const user = JSON.parse(localStorage.getItem("users"));
 
   const context = useContext(myContext);
+  const { getAllBook } = context;
 
   return (
     <Layout>
@@ -84,7 +84,7 @@ const UserDashboard = () => {
                       </svg>
                     </div>
                     <h2 className="title-font font-medium text-3xl text-indigo-400 fonts1">
-                      10
+                      {getAllBook.length}
                     </h2>
                     <p className=" text-indigo-500  font-bold">Total Books</p>
                   </div>
