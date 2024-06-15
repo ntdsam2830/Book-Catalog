@@ -31,9 +31,9 @@ const Signup = () => {
       userSignup.email === "" ||
       userSignup.password === ""
     ) {
-      toast.error("All Fields are required");
+      return toast.error("All fields are required");
     } else if (!emailPattern.test(userSignup.email)) {
-      toast.error("Invalid email");
+      return toast.error("Invalid email");
     }
 
     setLoading(true);

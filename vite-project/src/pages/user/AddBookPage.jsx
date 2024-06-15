@@ -80,6 +80,10 @@ const AddBookPage = () => {
       book.rating == ""
     ) {
       return toast.error("All fields are required");
+    } else if (book.publish < 1000 || book.publish > 2024) {
+      return toast.error("Invalid publish year.");
+    } else if (book.rating < 0 || book.rating > 5) {
+      return toast.error("Invalid rating.");
     }
 
     setLoading(true);

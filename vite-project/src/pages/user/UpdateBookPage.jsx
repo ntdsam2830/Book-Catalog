@@ -98,6 +98,12 @@ const UpdateBookPage = () => {
 
   // Add book Function
   const updateBookFunction = async () => {
+    //validation
+    if (book.publish < 1000 || book.publish > 2024) {
+      return toast.error("Invalid publish year");
+    } else if (book.rating < 0 || book.rating > 5) {
+      return toast.error("Invalid rating");
+    }
     setLoading(true);
     try {
       await setDoc(doc(fireDB, "books", id), book);
