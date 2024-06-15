@@ -44,7 +44,7 @@ const App = () => {
               }
             />
             <Route
-              path="/updatebook"
+              path="/updatebook/:id"
               element={
                 <ProtectedRouteForUser>
                   <UpdateBookPage />

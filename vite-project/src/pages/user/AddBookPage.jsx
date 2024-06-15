@@ -79,20 +79,20 @@ const AddBookPage = () => {
       book.publish == "" ||
       book.rating == ""
     ) {
-      return toast.error("all fields are required");
+      return toast.error("All fields are required");
     }
 
     setLoading(true);
     try {
       const bookRef = collection(fireDB, "books");
       await addDoc(bookRef, book);
-      toast.success("Add book successfully");
+      toast.success("Book added successfully");
       navigate("/user-dashboard");
       setLoading(false);
     } catch (error) {
       console.log(error);
       setLoading(false);
-      toast.error("Add book failed");
+      toast.error("Book added failed");
     }
   };
   return (
