@@ -42,21 +42,23 @@ const categoryList = [
   },
 ];
 
-const AddProductPage = () => {
+const AddBookPage = () => {
   const context = useContext(myContext);
   const { loading, setLoading } = context;
 
   // navigate
   const navigate = useNavigate();
 
-  // product state
-  const [product, setProduct] = useState({
-    title: "",
-    price: "",
-    productImageUrl: "",
+  // book state
+  const [book, setBook] = useState({
+    name: "",
+    desc: "",
+    authors: "",
+    publish: "",
+    bookImageUrl: "",
     category: "",
-    description: "",
-    quantity: 1,
+    rating: "",
+    ISBN: "",
     time: Timestamp.now(),
     date: new Date().toLocaleString("en-US", {
       month: "short",
@@ -65,29 +67,31 @@ const AddProductPage = () => {
     }),
   });
 
-  // Add Product Function
-  const addProductFunction = async () => {
+  // Add book Function
+  const addBookFunction = async () => {
     if (
-      product.title == "" ||
-      product.price == "" ||
-      product.productImageUrl == "" ||
-      product.category == "" ||
-      product.description == ""
+      book.name == "" ||
+      book.desc == "" ||
+      book.bookImageUrl == "" ||
+      book.category == "" ||
+      book.authors == "" ||
+      book.publish == "" ||
+      book.rating == ""
     ) {
       return toast.error("all fields are required");
     }
 
     setLoading(true);
     try {
-      const productRef = collection(fireDB, "products");
-      await addDoc(productRef, product);
-      toast.success("Add product successfully");
-      navigate("/admin-dashboard");
+      const bookRef = collection(fireDB, "books");
+      await addDoc(bookRef, book);
+      toast.success("Add book successfully");
+      navigate("/user-dashboard");
       setLoading(false);
     } catch (error) {
       console.log(error);
       setLoading(false);
-      toast.error("Add product failed");
+      toast.error("Add book failed");
     }
   };
   return (
@@ -95,11 +99,11 @@ const AddProductPage = () => {
       <div className="flex justify-center items-center h-screen">
         {loading && <Loader />}
         {/* Login Form  */}
-        <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
+        <div className="login_Form bg-indigo-50 px-8 py-6 border border-indigo-100 rounded-xl shadow-md">
           {/* Top Heading  */}
           <div className="mb-5">
-            <h2 className="text-center text-2xl font-bold text-pink-500 ">
-              Add Product
+            <h2 className="text-center text-2xl font-bold text-indigo-500 ">
+              Add Book
             </h2>
           </div>
 
@@ -107,66 +111,87 @@ const AddProductPage = () => {
           <div className="mb-3">
             <input
               type="text"
-              name="title"
-              value={product.title}
+              name="name"
+              value={book.name}
               onChange={(e) => {
-                setProduct({
-                  ...product,
-                  title: e.target.value,
+                setBook({
+                  ...book,
+                  name: e.target.value,
                 });
               }}
-              placeholder="Product Title"
-              className="bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300"
+              placeholder="Book Title"
+              className="bg-indigo-50 border text-indigo-300 border-indigo-200 px-2 py-2 w-96 rounded-md outline-none placeholder-indigo-300"
+            />
+          </div>
+
+          <div className="mb-3">
+            <input
+              type="text"
+              name="author"
+              value={book.authors}
+              onChange={(e) => {
+                setBook({
+                  ...book,
+                  authors: e.target.value,
+                });
+              }}
+              placeholder="Book Authors"
+              className="bg-indigo-50 border text-indigo-300 border-indigo-200 px-2 py-2 w-96 rounded-md outline-none placeholder-indigo-300"
             />
           </div>
 
           {/* Input Two  */}
           <div className="mb-3">
             <input
-              type="number"
-              name="price"
-              value={product.price}
+              type="date"
+              min="1000-01-01"
+              id="datePickerId"
+              name="publish"
+              value={book.publish}
               onChange={(e) => {
-                setProduct({
-                  ...product,
-                  price: e.target.value,
+                setBook({
+                  ...book,
+                  publish: e.target.value,
                 });
               }}
-              placeholder="Product Price"
-              className="bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300"
+              placeholder="Publish year"
+              className="bg-indigo-50 border text-indigo-300 border-indigo-200 px-2 py-2 w-96 rounded-md outline-none placeholder-indigo-300"
             />
+            <script type="text/javascript">
+              datePickerId.max = new Date().toISOString().split("T")[0];
+            </script>
           </div>
 
           {/* Input Three  */}
           <div className="mb-3">
             <input
               type="text"
-              name="productImageUrl"
-              value={product.productImageUrl}
+              name="bookImageUrl"
+              value={book.bookImageUrl}
               onChange={(e) => {
-                setProduct({
-                  ...product,
-                  productImageUrl: e.target.value,
+                setBook({
+                  ...book,
+                  bookImageUrl: e.target.value,
                 });
               }}
-              placeholder="Product Image Url"
-              className="bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300"
+              placeholder="Book Image Url"
+              className="bg-indigo-50 border text-indigo-300 border-indigo-200 px-2 py-2 w-96 rounded-md outline-none placeholder-indigo-300"
             />
           </div>
 
           {/* Input Four  */}
           <div className="mb-3">
             <select
-              value={product.category}
+              value={book.category}
               onChange={(e) => {
-                setProduct({
-                  ...product,
+                setBook({
+                  ...book,
                   category: e.target.value,
                 });
               }}
-              className="w-full px-1 py-2 text-pink-300 bg-pink-50 border border-pink-200 rounded-md outline-none  "
+              className="w-full px-1 py-2 text-indigo-300 bg-indigo-50 border border-indigo-200 rounded-md outline-none  "
             >
-              <option disabled>Select Product Category</option>
+              <option disabled>Select Book Category</option>
               {categoryList.map((value, index) => {
                 const { name } = value;
                 return (
@@ -182,31 +207,67 @@ const AddProductPage = () => {
             </select>
           </div>
 
+          <div className="mb-3">
+            <input
+              type="number"
+              name="rating"
+              required=""
+              min="0"
+              step="0.1"
+              max="5"
+              value={book.rating}
+              onChange={(e) => {
+                setBook({
+                  ...book,
+                  rating: e.target.value,
+                });
+              }}
+              placeholder="Rating"
+              className="bg-indigo-50 border text-indigo-300 border-indigo-200 px-2 py-2 w-96 rounded-md outline-none placeholder-indigo-300"
+            />
+          </div>
+
+          <div className="mb-3">
+            <input
+              type="text"
+              name="ISBN"
+              value={book.ISBN}
+              onChange={(e) => {
+                setBook({
+                  ...book,
+                  ISBN: e.target.value,
+                });
+              }}
+              placeholder="ISBN"
+              className="bg-indigo-50 border text-indigo-300 border-indigo-200 px-2 py-2 w-96 rounded-md outline-none placeholder-indigo-300"
+            />
+          </div>
+
           {/* Input Five  */}
           <div className="mb-3">
             <textarea
-              value={product.description}
+              value={book.desc}
               onChange={(e) => {
-                setProduct({
-                  ...product,
-                  description: e.target.value,
+                setBook({
+                  ...book,
+                  desc: e.target.value,
                 });
               }}
               name="description"
-              placeholder="Product Description"
+              placeholder="Book Description"
               rows="5"
-              className=" w-full px-2 py-1 text-pink-300 bg-pink-50 border border-pink-200 rounded-md outline-none placeholder-pink-300 "
+              className=" w-full px-2 py-1 text-indigo-300 bg-indigo-50 border border-indigo-200 rounded-md outline-none placeholder-indigo-300 "
             ></textarea>
           </div>
 
-          {/* Add Product Button  */}
+          {/* Add book Button  */}
           <div className="mb-3">
             <button
-              onClick={addProductFunction}
+              onClick={addBookFunction}
               type="button"
-              className="bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md "
+              className="bg-indigo-500 hover:bg-indigo-600 w-full text-white text-center py-2 font-bold rounded-md "
             >
-              Add Product
+              Add book
             </button>
           </div>
         </div>
@@ -215,4 +276,4 @@ const AddProductPage = () => {
   );
 };
 
-export default AddProductPage;
+export default AddBookPage;
