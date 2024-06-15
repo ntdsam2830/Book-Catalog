@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { useContext, useState } from "react";
 import myContext from "../../context/myContext";
