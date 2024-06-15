@@ -18,7 +18,7 @@ const categoryList = [
     name: "Science & Technology",
   },
   {
-    name: "sci-Fi & Fantasy",
+    name: "Sci-Fi & Fantasy",
   },
   {
     name: "Literature & Fiction",
@@ -148,9 +148,9 @@ const AddBookPage = () => {
           {/* Input Two  */}
           <div className="mb-3">
             <input
-              type="date"
-              min="1000-01-01"
-              id="datePickerId"
+              type="number"
+              min="1000"
+              max="2024"
               name="publish"
               value={book.publish}
               onChange={(e) => {
@@ -162,9 +162,6 @@ const AddBookPage = () => {
               placeholder="Publish year"
               className="bg-indigo-50 border text-indigo-300 border-indigo-200 px-2 py-2 w-96 rounded-md outline-none placeholder-indigo-300"
             />
-            <script type="text/javascript">
-              datePickerId.max = new Date().toISOString().split("T")[0];
-            </script>
           </div>
 
           {/* Input Three  */}
