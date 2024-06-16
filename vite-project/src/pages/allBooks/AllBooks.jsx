@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { useNavigate } from "react-router";
 import Layout from "../../components/layout/Layout";
+import { useContext } from "react";
+import myContext from "../../context/myContext";
+import Loader from "../../components/loader/Loader";
 
-// productData
 const bookData = [
   {
     id: 1,
@@ -85,6 +88,10 @@ const bookData = [
 
 const AllBooks = () => {
   const navigate = useNavigate();
+
+  const context = useContext(myContext);
+  const { loading, getAllBook } = context;
+
   return (
     <Layout>
       <div className="py-8">
@@ -98,16 +105,17 @@ const AllBooks = () => {
         {/* main  */}
         <section className="text-gray-600 body-font">
           <div className="container px-5 lg:px-0 py-5 mx-auto">
+            <div className="flex justify-center">{loading && <Loader />}</div>
             <div className="flex flex-wrap -m-4">
-              {bookData.map((item, index) => {
-                const { image, name, authors } = item;
+              {getAllBook.map((item, index) => {
+                const { id, name, authors, bookImageUrl } = item;
                 return (
                   <div key={index} className="p-3.5 w-full md:w-1/4">
                     <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
                       <img
                         onClick={() => navigate("/bookinfo")}
                         className="lg:h-80  h-96 w-full"
-                        src={image}
+                        src={bookImageUrl}
                         alt="blog"
                       />
                       <div className="p-6">
