@@ -108,7 +108,7 @@ const AllBooks = () => {
             <div className="flex justify-center">{loading && <Loader />}</div>
             <div className="flex flex-wrap -m-4">
               {getAllBook.map((item, index) => {
-                const { id, name, authors, bookImageUrl } = item;
+                const { id, name, authors, publish, bookImageUrl } = item;
                 return (
                   <div key={index} className="p-3.5 w-full md:w-1/4">
                     <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
@@ -119,15 +119,15 @@ const AllBooks = () => {
                         alt="blog"
                       />
                       <div className="p-6">
-                        <h2 className="tracking-widest text-xs name-font font-medium text-gray-400 mb-1">
-                          My Book Catalog
-                        </h2>
                         <h1 className="name-font text-lg font-semibold text-gray-900 mb-3">
                           {name.substring(0, 25)}
                         </h1>
-                        <h1 className="name-font text-lg font-medium text-gray-900 mb-3">
+                        <h1 className="name-font text-m font-medium text-gray-900 mb-3">
                           {authors}
                         </h1>
+                        <h2 className="text-s name-font font-medium text-gray-600 mb-3">
+                          Publish: {publish}
+                        </h2>
 
                         <div className="flex justify-center ">
                           <button
