@@ -10,6 +10,7 @@ import Login from "./pages/registration/Login";
 import UserDashboard from "./pages/user/UserDashboard";
 import AddBookPage from "./pages/user/AddBookPage";
 import UpdateBookPage from "./pages/user/UpdateBookPage";
+import CategoryPage from "./pages/category/CategoryPage";
 import MyState from "./context/myState";
 import { ProtectedRouteForUser } from "./protectedRoute/ProtectedRouteForUser";
 import ScrollTop from "./components/scrollTop/ScrollTop";
@@ -27,6 +28,11 @@ const App = () => {
             <Route path="/allbooks" element={<AllBooks />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route
+              path="/category/:categoryname"
+              element={<CategoryPage />}
+            />{" "}
+            {/* category Page route  */}
             <Route
               path="/user-dashboard"
               element={
