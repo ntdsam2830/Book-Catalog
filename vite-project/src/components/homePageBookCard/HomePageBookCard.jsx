@@ -109,7 +109,7 @@ const HomePageBookCard = () => {
                 <div key={index} className="p-3.5 w-full md:w-1/4">
                   <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
                     <img
-                      onClick={() => navigate("/bookinfo")}
+                      onClick={() => navigate(`/bookinfo/${id}`)}
                       className="lg:h-80  h-96 w-full"
                       src={bookImageUrl}
                       alt="image"
