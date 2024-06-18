@@ -18,7 +18,7 @@ function MyState({ children }) {
   const getAllBookFunction = async () => {
     setLoading(true);
     try {
-      const q = query(collection(fireDB, "books"), orderBy("time"));
+      const q = query(collection(fireDB, "books"), orderBy("publish", "desc"));
       const data = onSnapshot(q, (QuerySnapshot) => {
         let bookArray = [];
         QuerySnapshot.forEach((doc) => {
