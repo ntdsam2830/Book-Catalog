@@ -99,9 +99,11 @@ const UpdateBookPage = () => {
   // Add book Function
   const updateBookFunction = async () => {
     //validation
-    if (book.publish < 1000 || book.publish > 2024) {
+    if (book.name.length >= 100) {
+      return toast.error("Book title must be less than 100 characters.");
+    } else if (book.publish < 1800 || book.publish > 2024) {
       return toast.error("Invalid publish year");
-    } else if (book.rating < 0 || book.rating > 5) {
+    } else if (book.rating < 0 || book.rating > 10) {
       return toast.error("Invalid rating");
     }
     setLoading(true);
