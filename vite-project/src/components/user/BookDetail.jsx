@@ -100,67 +100,65 @@ const BookDetail = () => {
               </th>
             </tr>
 
-            {getAllBook
-              .sort((a, b) => b.publish - a.publish)
-              .map((item, index) => {
-                const { id, name, authors, category, publish, bookImageUrl } =
-                  item;
-                return (
-                  <tr key={index} className="text-indigo-300">
-                    <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 ">
-                      {index + 1}.
-                    </td>
-                    <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                      <div className="flex justify-center">
-                        <img className="w-20 " src={bookImageUrl} alt="" />
-                      </div>
-                    </td>
-                    <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                      {name}
-                    </td>
-                    <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                      {authors}
-                    </td>
-                    <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                      {category}
-                    </td>
-                    <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                      {publish}
-                    </td>
-                    <td
-                      onClick={() => navigate(`/updatebook/${id}`)}
-                      className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 text-green-500 cursor-pointer "
-                    >
-                      Edit
-                    </td>
-                    <td
-                      onClick={() =>
-                        Swal.fire({
-                          title: "Are you sure?",
-                          text: "You won't be able to revert this!",
-                          icon: "warning",
-                          showCancelButton: true,
-                          confirmButtonColor: "#3085d6",
-                          cancelButtonColor: "#d33",
-                          confirmButtonText: "Yes, delete it!",
-                        }).then((result) => {
-                          if (result.isConfirmed) {
-                            deleteBook(id);
-                            Swal.fire({
-                              title: "Deleted!",
-                              text: "The book has been deleted.",
-                              icon: "success",
-                            });
-                          }
-                        })
-                      }
-                      className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 text-red-500 cursor-pointer "
-                    >
-                      Delete
-                    </td>
-                  </tr>
-                );
-              })}
+            {getAllBook.map((item, index) => {
+              const { id, name, authors, category, publish, bookImageUrl } =
+                item;
+              return (
+                <tr key={index} className="text-indigo-300">
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 ">
+                    {index + 1}.
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                    <div className="flex justify-center">
+                      <img className="w-20 " src={bookImageUrl} alt="" />
+                    </div>
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                    {name}
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                    {authors}
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                    {category}
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                    {publish}
+                  </td>
+                  <td
+                    onClick={() => navigate(`/updatebook/${id}`)}
+                    className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 text-green-500 cursor-pointer "
+                  >
+                    Edit
+                  </td>
+                  <td
+                    onClick={() =>
+                      Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, delete it!",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          deleteBook(id);
+                          Swal.fire({
+                            title: "Deleted!",
+                            text: "The book has been deleted.",
+                            icon: "success",
+                          });
+                        }
+                      })
+                    }
+                    className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 text-red-500 cursor-pointer "
+                  >
+                    Delete
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
