@@ -1,4 +1,14 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router";
+import myContext from "../../context/myContext";
+import Loader from "../loader/Loader";
+
 const Track = () => {
+  const navigate = useNavigate();
+
+  const context = useContext(myContext);
+  const { loading, getAllBook } = context;
+
   return (
     <div className="mt-10">
       {/* Heading  */}
@@ -8,84 +18,46 @@ const Track = () => {
         </h1>
       </div>
 
-      <section>
-        <div className=" container mx-auto px-5 py-10 md:py-14">
-          {/* main  */}
-          <div className="flex flex-wrap -m-4 text-center">
-            {/* Track 1 */}
-            <div className="p-4 md:w-1/3 sm:w-1/2 w-full">
-              <div className="border-2 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-100 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] px-4 py-6 rounded-lg">
-                <svg
-                  className="text-pink-600 w-12 h-12 mb-3 inline-block"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                  />
-                </svg>
-
-                <h2 className="title-font font-medium text-lg text-gray-900">
-                  Top Recommended Books{" "}
-                </h2>
-                <p className="leading-relaxed">Find your next favorite book.</p>
-              </div>
-            </div>
-
-            {/* Track 2 */}
-            <div className="p-4 md:w-1/3 sm:w-1/2 w-full">
-              <div className="border-2 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-100 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] px-4 py-6 rounded-lg">
-                <svg
-                  className="text-pink-600 w-12 h-12 mb-3 inline-block"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                  />
-                </svg>
-
-                <h2 className="title-font font-medium text-lg text-gray-900">
-                  Top Recommended Books{" "}
-                </h2>
-                <p className="leading-relaxed">Find your next favorite book.</p>
-              </div>
-            </div>
-
-            {/* Track 3  */}
-            <div className="p-4 md:w-1/3 sm:w-1/2 w-full">
-              <div className="border-2 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-100 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] px-4 py-6 rounded-lg">
-                <svg
-                  className="text-pink-600 w-12 h-12 mb-3 inline-block"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                  />
-                </svg>
-
-                <h2 className="title-font font-medium text-lg text-gray-900">
-                  Top Recommended Books{" "}
-                </h2>
-                <p className="leading-relaxed">Find your next favorite book.</p>
-              </div>
-            </div>
+      <section className="text-gray-600 body-font">
+        <div className="container mx-auto px-5 py-10 md:py-14">
+          <div className="flex justify-center ">{loading && <Loader />}</div>
+          <div className="flex flex-wrap justify-evenly -m-4 ">
+            {getAllBook
+              .sort((a, b) => b.rating - a.rating)
+              .slice(0, 3)
+              .map((item, index) => {
+                const { id, name, rating, bookImageUrl } = item;
+                return (
+                  <div key={index} className="p-4 md:w-1/4 sm:w-1/2 w-full">
+                    <div className="border-2 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-100 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] px-4 py-6 rounded-lg">
+                      <img
+                        onClick={() => navigate(`/bookinfo/${id}`)}
+                        className="lg:h-80  h-96 w-full"
+                        src={bookImageUrl}
+                        alt="image"
+                      />
+                      <div className="p-2">
+                        <h2 className="title-font font-bold text-lg text-gray-900">
+                          {name.substring(0, 25)}
+                        </h2>
+                        {/* <p className="leading-relaxed">{authors}.</p> */}
+                        <h2 className="text-xs name-font font-medium text-gray-600 mb-3">
+                          Rating:
+                          {rating}
+                        </h2>
+                        <div className="flex justify-center ">
+                          <button
+                            onClick={() => navigate("/bookinfo")}
+                            className=" bg-indigo-200 hover:bg-indigo-600 w-full text-white py-[4px] rounded-lg font-bold"
+                          >
+                            More details
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
         </div>
       </section>
