@@ -4,86 +4,6 @@ import { useNavigate } from "react-router";
 import myContext from "../../context/myContext";
 import Loader from "../loader/Loader";
 // productData
-const bookData = [
-  {
-    id: 1,
-    image:
-      "https://cdn0.fahasa.com/media/catalog/product/n/o/norwegian_wood_1_2020_04_29_14_48_08.jpg",
-    name: "Norwegian Wood",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    authors: "Haruki Murakami",
-    trendingBookName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 2,
-    image:
-      "https://www.nxbtre.com.vn/Images/Book/NXBTreStoryFull_08352010_033550.jpg",
-    name: "Toi Thay Hoa Vang Tren Co Xanh",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    authors: "Nguyen Nhat Anh",
-    trendingBookName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 3,
-    image: "https://ntthnue.edu.vn/uploads/Images/2016/11/127.jpg",
-    name: "Ha Noi Bam Sau Pho Phuong",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    authors: "Thach Lam",
-    trendingBookName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 4,
-    image:
-      "https://www.usatoday.com/gcdn/media/USATODAY/USATODAY/2013/02/12/hp_final_sorcerers-3_4.jpg?width=660&height=877&fit=crop&format=pjpg&auto=webp",
-    name: "Harry Potter",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    authors: "J. K. Rowling",
-    trendingBookName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 1,
-    image:
-      "https://m.media-amazon.com/images/I/81aY1lxk+9L._AC_UF1000,1000_QL80_.jpg",
-    name: "To Kill a Mockingbird",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    authors: "Harper Lee",
-    trendingBookName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 2,
-    image: "https://cdn0.fahasa.com/media/catalog/product/7/1/713jiomo3ul.jpg",
-    name: "Sapiens",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    authors: "Yuval Noah Harari",
-    trendingBookName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 3,
-    image:
-      "https://cdn.gramedia.com/uploads/items/9786020321486_Zero-To-One_GiqDeE9.jpg",
-    name: "Zero to One",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    authors: "Peter Thiel",
-    trendingBookName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 4,
-    image:
-      "https://salt.tikicdn.com/ts/product/4a/4e/f5/f510ae5deb4a1754c2dc62d18886bc72.jpeg",
-    name: "Shoe Dog",
-    rating: 4.5,
-    authors: "Phil Knight",
-    trendingBookName: "Featured",
-    quantity: 1,
-  },
-];
 
 const HomePageBookCard = () => {
   const navigate = useNavigate();
@@ -127,7 +47,7 @@ const HomePageBookCard = () => {
                       </h2>
                       <div className="flex justify-center ">
                         <button
-                          onClick={() => navigate("/bookinfo")}
+                          onClick={() => navigate("/bookinfo/${id}")}
                           className=" bg-indigo-200 hover:bg-indigo-600 w-full text-white py-[4px] rounded-lg font-bold"
                         >
                           More details
