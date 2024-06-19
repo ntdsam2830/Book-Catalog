@@ -56,11 +56,6 @@ const Navbar = () => {
           Logout
         </li>
       )}
-
-      {/* Cart */}
-      <li>
-        <Link to={"/cart"}>Cart(0)</Link>
-      </li>
     </ul>
   );
   return (

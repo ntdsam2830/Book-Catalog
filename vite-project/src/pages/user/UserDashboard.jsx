@@ -90,8 +90,7 @@ const UserDashboard = () => {
                   </div>
                 </Tab>
 
-                {/* Total Order  */}
-                <Tab className="p-4 md:w-1/3 sm:w-1/2 w-full cursor-pointer">
+                {/* <Tab className="p-4 md:w-1/3 sm:w-1/2 w-full cursor-pointer">
                   <div className=" border bg-indigo-50 hover:bg-indigo-100 border-indigo-100 px-4 py-3 rounded-xl">
                     <div className="text-indigo-500 inline-block">
                       <svg
@@ -117,16 +116,16 @@ const UserDashboard = () => {
                       Favorite Books
                     </p>
                   </div>
-                </Tab>
+                </Tab> */}
               </TabList>
 
               <TabPanel>
                 <BookDetail />
               </TabPanel>
 
-              <TabPanel>
+              {/* <TabPanel>
                 <FavBook />
-              </TabPanel>
+              </TabPanel> */}
             </Tabs>
           </div>
         </div>
