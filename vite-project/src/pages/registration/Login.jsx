@@ -47,13 +47,13 @@ const Login = () => {
         const data = onSnapshot(q, (QuerySnapshot) => {
           let user;
           QuerySnapshot.forEach((doc) => (user = doc.data()));
-          localStorage.setItem("users", JSON.stringify(user));
+          localStorage.setItem("user", JSON.stringify(user));
           setUserLogin({
             email: "",
             password: "",
           });
           toast.success("Login Successfully");
-          navigate("/user-dashboard");
+          navigate("/");
           setLoading(false);
         });
         return () => data;

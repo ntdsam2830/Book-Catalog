@@ -10,7 +10,7 @@ import myContext from "../../context/myContext";
 
 const UserDashboard = () => {
   // user
-  const user = JSON.parse(localStorage.getItem("users"));
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const context = useContext(myContext);
   const { getAllBook } = context;

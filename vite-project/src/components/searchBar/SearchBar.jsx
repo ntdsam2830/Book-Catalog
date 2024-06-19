@@ -36,7 +36,10 @@ const SearchBar = () => {
                     <div
                       key={index}
                       className="py-2 px-2 cursor-pointer"
-                      onClick={() => navigate(`/bookinfo/${item.id}`)}
+                      onClick={() => {
+                        navigate(`/bookinfo/${item.id}`);
+                        window.location.reload();
+                      }}
                     >
                       <div className="flex items-center gap-2">
                         <img className="w-10" src={item.bookImageUrl} alt="" />

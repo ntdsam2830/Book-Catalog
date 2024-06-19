@@ -49,7 +49,7 @@ const Track = () => {
                         </h2>
                         <div className="flex justify-center ">
                           <button
-                            onClick={() => navigate("/bookinfo")}
+                            onClick={() => navigate(`/bookinfo/${id}`)}
                             className=" bg-indigo-200 hover:bg-indigo-600 w-full text-white py-[4px] rounded-lg font-bold"
                           >
                             More details
