@@ -123,7 +123,7 @@ const AllBooks = () => {
                           {name.substring(0, 25)}
                         </h1>
                         <h1 className="name-font text-m font-medium text-gray-900 mb-3">
-                          {authors}
+                          {authors.substring(0, 25)}
                         </h1>
                         <h2 className="text-s name-font font-medium text-gray-600 mb-3">
                           Publish: {publish}

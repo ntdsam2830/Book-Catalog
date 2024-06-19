@@ -39,7 +39,9 @@ const CategoryPage = () => {
                 {filterBook.length > 0 ? (
                   <>
                     {filterBook
-                      .sort((a, b) => b.name - a.name)
+                      .sort((a, b) =>
+                        a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+                      )
                       .map((item, index) => {
                         const { id, name, authors, publish, bookImageUrl } =
                           item;
