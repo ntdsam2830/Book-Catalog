@@ -106,7 +106,7 @@ const HomePageBookCard = () => {
             {getAllBook.slice(0, 8).map((item, index) => {
               const { id, name, authors, publish, bookImageUrl } = item;
               return (
-                <div key={index} className="p-3.5 w-full md:w-1/4">
+                <div key={index} className="p-3 w-full md:w-1/4">
                   <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
                     <img
                       onClick={() => navigate(`/bookinfo/${id}`)}
@@ -119,7 +119,7 @@ const HomePageBookCard = () => {
                         {name.substring(0, 25)}
                       </h1>
                       <h1 className="name-font text-lg font-medium text-gray-900 mb-3">
-                        {authors}
+                        {authors.substring(0, 25)}
                       </h1>
                       <h2 className="text-xs name-font font-medium text-gray-600 mb-3">
                         Publish:
