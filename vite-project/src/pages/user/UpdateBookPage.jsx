@@ -133,7 +133,7 @@ const UpdateBookPage = () => {
           {/* Top Heading  */}
           <div className="mb-5">
             <h2 className="text-center text-2xl font-bold text-indigo-500 ">
-              Add Book
+              Update Book
             </h2>
           </div>
 

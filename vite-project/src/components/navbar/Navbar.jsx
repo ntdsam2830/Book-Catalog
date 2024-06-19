@@ -16,7 +16,7 @@ const Navbar = () => {
 
   // navList Data
   const navList = (
-    <ul className="flex space-x-3 text-white font-medium text-md px-5 ">
+    <ul className="flex space-x-4 text-white font-medium text-md px-5">
       {/* Home */}
       <li>
         <Link to={"/"}>Home</Link>
@@ -65,7 +65,7 @@ const Navbar = () => {
         {/* left  */}
         <div className="left py-3 lg:py-0">
           <Link to={"/"}>
-            <h2 className=" font-bold text-white text-2xl text-center">
+            <h2 className=" font-bold text-white text-2xl text-center pl-8">
               My Book Catalog
             </h2>
           </Link>
@@ -75,7 +75,9 @@ const Navbar = () => {
         <div className="right flex justify-center mb-4 lg:mb-0">{navList}</div>
 
         {/* Search Bar  */}
-        <SearchBar />
+        <div className="pr-5">
+          <SearchBar />
+        </div>
       </div>
     </nav>
   );
