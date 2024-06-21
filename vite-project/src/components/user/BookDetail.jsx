@@ -104,7 +104,7 @@ const BookDetail = () => {
               const { id, name, authors, category, publish, bookImageUrl } =
                 item;
               return (
-                <tr key={index} className="text-indigo-300">
+                <tr key={index} className="text-indigo-300  hover:underline">
                   <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 ">
                     {index + 1}.
                   </td>
