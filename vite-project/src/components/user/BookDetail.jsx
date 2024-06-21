@@ -110,10 +110,18 @@ const BookDetail = () => {
                   </td>
                   <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
                     <div className="flex justify-center">
-                      <img className="w-20 " src={bookImageUrl} alt="" />
+                      <img
+                        className="w-20 "
+                        src={bookImageUrl}
+                        onClick={() => navigate(`/bookinfo/${id}`)}
+                        alt=""
+                      />
                     </div>
                   </td>
-                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                  <td
+                    onClick={() => navigate(`/bookinfo/${id}`)}
+                    className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase "
+                  >
                     {name}
                   </td>
                   <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-indigo-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
