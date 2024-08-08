@@ -64,7 +64,7 @@ const BookInfo = () => {
 
                       <div>
                         <p className="inline-block mb-5 text-xl font-regular text-gray-700 dark:text-gray-300 ">
-                          Rating: <span>{book?.rating}</span>
+                          Rating: <span>{book?.rating}/5</span>
                         </p>
                       </div>
 
